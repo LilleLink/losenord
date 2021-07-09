@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Link, Switch, Route, Redirect } from "react-ro
 import logo from './logo.svg'
 import './App.css'
 
-// Huvud "Appen" där allt laddas in
+// Huvud "Appen" där allt laddas in. T.ex. formulärobjektet med "<Form/>"
 function App() {
 
   return (
@@ -20,6 +20,11 @@ function App() {
 
 
 // Formulärobjekt
+// Tror att denna skall flyttas till en egen klass, då man kan göra såna och de verkar coola.
+// Då får man lite objekt-orienterad funktionalitet som vi saknar här.
+// Så har de gjort i denna tutorialen https://reactjs.org/docs/forms.html
+// Tänker att man kke flyttar varje sån klass till sin egen fil, som importeras här, och sammanställs i "App" 
+// funktionen ovan.
 function Form() {
 
   return (
@@ -29,7 +34,7 @@ function Form() {
       </div>
 
       <form>
-        <label>Lösenord: <input type="text" name="pw"></input></label>
+        <label>Lösenord: <input type="text" name="pw"></input></label><br/><br/>
         <button type="submit">Generera länk</button>
       </form>
     </div>
@@ -38,6 +43,7 @@ function Form() {
 }
 
 
+// KOD SOM KOM MED I MALLEN JAG KLONADE
 /*
 <header className="App-header">
 <img src={logo} className="App-logo" alt="logo" />
