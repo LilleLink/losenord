@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Link, Switch, Route, Redirect } from "react-router-dom";
-import logo from './logo.svg'
 import './App.css'
 
 // Huvud "Appen" där allt laddas in. T.ex. formulärobjektet med "<Form/>"
