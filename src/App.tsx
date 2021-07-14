@@ -41,11 +41,12 @@ function Form(props : any) {
       </div>
 
       <form onSubmit={handleSubmit}>
-        <label>Lösenord: 
-          <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}/>
+        <label>Lösenord <br/>
+          <input className="textField" type="text" value={password} onChange={(e) => setPassword(e.target.value)}/>
         </label>
           <br/>
-        <input type="submit" value="Generera länk"/>
+          <br/>
+        <input className="submitButton" type="submit" value="Generera länk"/>
       </form>
     </div>
   )

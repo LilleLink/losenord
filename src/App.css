@@ -1,6 +1,8 @@
 body {
   background-color: #1A4E63;
   color:white;
+  font-family: Helvetica;
+  font-size: 20px;
 }
 
 header {
@@ -9,6 +11,16 @@ header {
 
 .Form {
   text-align: center;
+}
+
+.submitButton {
+  border-radius: 5px;
+  font-size: 24px;
+  background-color: #EE715F;
+}
+
+.textField {
+  font-size: 24px;
 }
 
 /*.App-header {
