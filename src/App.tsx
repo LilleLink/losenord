@@ -24,17 +24,28 @@ function App() {
 // Så har de gjort i denna tutorialen https://reactjs.org/docs/forms.html
 // Tänker att man kke flyttar varje sån klass till sin egen fil, som importeras här, och sammanställs i "App" 
 // funktionen ovan.
-function Form() {
+function Form(props : any) {
+
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e : React.FormEvent) => {
+    e.preventDefault();
+    alert(password);
+  }
 
   return (
     <div className="Form">
       <div id="information">
-        <p>Detta är en tjänst för att kunna skicka lösenord via chatt/mail utan att behöva skriva de i klartext.</p>
+        <p>Detta är en tjänst för att kunna skicka lösenord via chatt/mail utan att behöva 
+          skriva de i klartext.</p>
       </div>
 
-      <form>
-        <label>Lösenord: <input type="text" name="pw"></input></label><br/><br/>
-        <button type="submit">Generera länk</button>
+      <form onSubmit={handleSubmit}>
+        <label>Lösenord: 
+          <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}/>
+        </label>
+          <br/>
+        <input type="submit" value="Generera länk"/>
       </form>
     </div>
   )
