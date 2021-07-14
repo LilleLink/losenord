@@ -1,7 +1,7 @@
 import React from 'react';
 
 function getReq() {
-  fetch('https://linus.dialekt.it/https://losenord.dialect.it/p/xtwcdmvuhgx7t7r1.json', {
+  fetch('https://cors.dialekt.it/https://backendpw.dialekt.it/p/xtwcdmvuhgx7t7r1.json', {
       method: 'GET',
       headers: { 'Accept': 'application/json'},
     })
