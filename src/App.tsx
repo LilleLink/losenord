@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Link, Switch, Route, Redirect } from "react-router-dom";
 import './App.css'
+import { postReq } from './dataReq';
+import { getReq } from './dataReq';
 
 // Huvud "Appen" där allt laddas in. T.ex. formulärobjektet med "<Form/>"
 function App() {
