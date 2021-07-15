@@ -13,6 +13,9 @@ function App() {
     
     <Form/>
 
+    <footer>
+    </footer>
+
     </div>
   )
 }
@@ -30,7 +33,7 @@ function Form(props : any) {
 
   const handleSubmit = (e : React.FormEvent) => {
     e.preventDefault();
-    alert(password);
+    
   }
 
   return (

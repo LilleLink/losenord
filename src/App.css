@@ -9,6 +9,14 @@ header {
   text-align: center;
 }
 
+footer {
+  width: 100%;
+  min-height: 100px;
+  position: fixed;
+  bottom: 0;
+  background-color: #EE715F;
+}
+
 .Form {
   text-align: center;
 }
