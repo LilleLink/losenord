@@ -11,7 +11,9 @@ function App() {
         <img src="assets\Dialect_Logotyp2020_White_Coral.png"/>
       </header>
 
-      <Form/>
+      <main>
+        <Form/>
+      </main>
 
       <footer>
       </footer>
@@ -30,10 +32,12 @@ function App() {
 function Form(props : any) {
 
   const [password, setPassword] = useState("");
+  const [expiryDate, setExpiryDate] = useState(30);
+  const [maxViews, setMaxViews] = useState(50);
 
   const handleSubmit = (e : React.FormEvent) => {
     e.preventDefault();
-    
+    alert("Inputs: "+password+", "+expiryDate+", "+maxViews);
   }
 
   return (
@@ -44,11 +48,25 @@ function Form(props : any) {
       </div>
 
       <form onSubmit={handleSubmit}>
+        <br/>
         <label>Lösenord <br/>
           <input className="textField" type="text" value={password} onChange={(e) => setPassword(e.target.value)}/>
         </label>
-          <br/>
-          <br/>
+        <br/>
+        <br/>
+        
+        <label>Välj när Lösenordet skall gå ut<br/>
+          <input className="rangeSlider" min="1" max="60" type="range" value={expiryDate} onChange={(e) => setExpiryDate(e.target.valueAsNumber)}/>
+        </label>
+        <br/>
+        <br/>
+
+        <label>Hur många gånger skall det gå att visa lösenordet?<br/>
+          <input className="rangeSlider" min="1" max="100" type="range" value={maxViews} onChange={(e) => setMaxViews(e.target.valueAsNumber)}/>
+        </label>
+        <br/>
+        <br/>
+
         <input className="submitButton" type="submit" value="Generera länk"/>
       </form>
     </div>
