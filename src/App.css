@@ -1,11 +1,10 @@
 body {
-  background-color: #1A4E63;
-  color:white;
   font-family: Helvetica;
   font-size: 20px;
 }
 
 header {
+  background-color: #1A4E63;
   text-align: center;
 }
 
@@ -14,17 +13,27 @@ footer {
   min-height: 100px;
   position: fixed;
   bottom: 0;
-  background-color: #EE715F;
+  background-color: #1A4E63;
 }
 
 .Form {
+  color:black;
+  background-color: #F4F4F4;
   text-align: center;
+  margin: 0 auto;
+  width: 75%;
 }
 
 .submitButton {
-  border-radius: 5px;
+  border-radius: 0px;
+  border-style: none;
+  padding: 10px;
   font-size: 24px;
   background-color: #EE715F;
+}
+
+.submitButton:hover {
+  
 }
 
 .textField {

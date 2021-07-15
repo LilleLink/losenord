@@ -8,13 +8,13 @@ function App() {
   return (
     <div className="App">
       <header>
-        <img src="assets\Dialect_Logotyp2020_White_Coral@2x.png"></img>
+        <img src="assets\Dialect_Logotyp2020_White_Coral.png"/>
       </header>
-    
-    <Form/>
 
-    <footer>
-    </footer>
+      <Form/>
+
+      <footer>
+      </footer>
 
     </div>
   )
