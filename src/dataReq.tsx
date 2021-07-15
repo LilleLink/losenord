@@ -17,7 +17,7 @@ export function getReq() {
       .catch(error => console.log('error'))
 }
 
-export function postReq() {
+export function postReq(password, days, uses,) {
   fetch('https://cors.dialekt.it/https://backendpw.dialekt.it/p.json', {
     method: 'POST',
     headers: { 'Accept': 'application/json'},
