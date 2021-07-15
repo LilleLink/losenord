@@ -40,6 +40,7 @@ function Form(props : any) {
   const handleSubmit = (e : React.FormEvent) => {
     e.preventDefault();
     alert("Inputs: "+password+", "+expiryDate+", "+maxViews);
+    postReq(password, expiryDate, maxViews)
   }
 
   return (
