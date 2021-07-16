@@ -17,6 +17,7 @@ export function getReq() {
       .catch(error => console.log('error'))
 }
 
+//Runs the POST request towards the backendpw site. Variables are set through postReq function
 export async function http<T>(
   request: RequestInfo
 ): Promise<T> {
@@ -26,27 +27,16 @@ export async function http<T>(
   return body;
 }
 
+//Function called from App.tsx. Gets called when handleSubmit runs
 export async function postReq(payload: string, expire_after_days: number , expire_after_views: number,) {
 
-  /* const [postId, setPostId] = useState(null);
-
-  useEffect(() => {
-    const ReqOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json'},
-      body: JSON.stringify({payload: payload, expire_after_days: expire_after_days, expire_after_views: expire_after_views}),
-    };
-    fetch('https://cors.dialekt.it/https://backendpw.dialekt.it/p.json', ReqOptions)
-      .then(response => response.json())
-      .then(data => setPostId(data.id));
-  }, []);
-  return{
-    postId
+  //Specifies what data is needed from the response
+  interface dataFormat {
+    url_token: string
   }
-*/
-  const response = await http<{
-    id: String;
-  }>(
+
+  //Calls "http" function with data that is needed for correct response
+  const response = await http<dataFormat>(
     new Request(
       "https://cors.dialekt.it/https://backendpw.dialekt.it/p.json",
       {
@@ -63,33 +53,10 @@ export async function postReq(payload: string, expire_after_days: number , expir
     )
   );
 
-  JSON.parse(response, (key, value) => {
-    
-  })
-
-
+  //Creates an URL to send back
+  const genURL = 'https://losenord.dialect.it/p/' + response.url_token
 
   return(
-    console.log(response)
+    genURL
   )
-
-/*  fetch('https://cors.dialekt.it/https://backendpw.dialekt.it/p.json', {
-    method: 'POST',
-    headers: { 'Accept': 'application/json'},
-
-  },
-  body: JSON.stringify({payload: payload, expire_after_days, expire_after_views})
-  )
-    .then(res => {
-      if(res.ok) {
-        console.log('SUCCESSFUL')
-      }
-      else {
-        console.log('Failed')
-      }
-    })
-    .then(data => console.log(data))
-    .catch(error => console.log('error'))
-}
-*/
 }
