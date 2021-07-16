@@ -17,9 +17,18 @@ export function getReq() {
       .catch(error => console.log('error'))
 }
 
-export function postReq(payload: string, expire_after_days: number , expire_after_views: number,) {
+export async function http<T>(
+  request: RequestInfo
+): Promise<T> {
+  const response = await fetch(request);
+  const body = await response.json();
+  //console.log(body)
+  return body;
+}
 
-  const [postId, setPostId] = useState(null);
+export async function postReq(payload: string, expire_after_days: number , expire_after_views: number,) {
+
+  /* const [postId, setPostId] = useState(null);
 
   useEffect(() => {
     const ReqOptions = {
@@ -34,6 +43,35 @@ export function postReq(payload: string, expire_after_days: number , expire_afte
   return{
     postId
   }
+*/
+  const response = await http<{
+    id: String;
+  }>(
+    new Request(
+      "https://cors.dialekt.it/https://backendpw.dialekt.it/p.json",
+      {
+        method: "post",
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          password:{
+          "payload": payload, 
+          "expire_after_days": expire_after_days, 
+          "expire_after_views": expire_after_views
+          }
+        })
+      }
+    )
+  );
+
+  JSON.parse(response, (key, value) => {
+    
+  })
+
+
+
+  return(
+    console.log(response)
+  )
 
 /*  fetch('https://cors.dialekt.it/https://backendpw.dialekt.it/p.json', {
     method: 'POST',
