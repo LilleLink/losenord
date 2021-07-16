@@ -37,11 +37,11 @@ function Form(props : any) {
   const [expiryDate, setExpiryDate] = useState(30);
   const [maxViews, setMaxViews] = useState(50);
 
-  const handleSubmit = (e : React.FormEvent) => {
+  const handleSubmit = async (e : React.FormEvent) => {
     e.preventDefault();
     alert("Inputs: "+password+", "+expiryDate+", "+maxViews);
-    const URLgen = postReq(password, expiryDate, maxViews);
-    console.log(URLgen);
+    const URLgen = await postReq(password, expiryDate, maxViews);
+    alert("URL: " +URLgen);
   }
 
   return (
