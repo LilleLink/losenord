@@ -41,6 +41,7 @@ function Form(props : any) {
     e.preventDefault();
     alert("Inputs: "+password+", "+expiryDate+", "+maxViews);
     const URLgen = postReq(password, expiryDate, maxViews);
+    console.log(URLgen);
   }
 
   return (

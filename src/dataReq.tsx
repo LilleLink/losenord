@@ -54,9 +54,7 @@ export async function postReq(payload: string, expire_after_days: number , expir
   );
 
   //Creates an URL to send back
-  const genURL = 'https://losenord.dialect.it/p/' + response.url_token
-
   return(
-    genURL
+    'https://losenord.dialect.it/p/' + response.url_token
   )
 }
