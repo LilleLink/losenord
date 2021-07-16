@@ -9,16 +9,16 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <img src="assets\Dialect_Logotyp2020_White_Coral.png"/>
-      </header>
+
+      <DialectHeader imagePath="assets\Dialect_Logotyp2020_White_Coral.png"/>
 
       <main>
         <Form/>
       </main>
 
-      <footer>
-      </footer>
+      <div className="footerWrapper">
+        <DialectFooter/>
+      </div>
 
     </div>
   )
@@ -40,15 +40,19 @@ function Form(props : any) {
   const handleSubmit = (e : React.FormEvent) => {
     e.preventDefault();
     alert("Inputs: "+password+", "+expiryDate+", "+maxViews);
-    const URLgen = postReq(password, expiryDate, maxViews)
+    const URLgen = postReq(password, expiryDate, maxViews);
   }
 
   return (
     <div className="Form">
       <div id="information">
         <p>Detta är en tjänst för att kunna skicka lösenord via chatt/mail utan att behöva 
-          skriva de i klartext.</p>
+          skriva de i klartext.<br/>
+          Fyll i formuläret nedan och tryck sedan på "Skapa länk" för att generera en mailbar länk</p>
       </div>
+
+      <br/>
+      <div className="horizontalLine"></div>
 
       <form onSubmit={handleSubmit}>
         <br/>
@@ -58,60 +62,38 @@ function Form(props : any) {
         <br/>
         <br/>
         
-        <label>Välj när Lösenordet skall gå ut<br/>
-          <input className="rangeSlider" min="1" max="60" type="range" value={expiryDate} onChange={(e) => setExpiryDate(e.target.valueAsNumber)}/>
-        </label>
-        <br/>
+        <label>Inaktivera länk och ta bort lösenord efter: </label><br/>
+        <input className="rangeSlider" min="1" max="60" type="range" value={expiryDate} onChange={(e) => setExpiryDate(e.target.valueAsNumber)}/>
         <br/>
 
-        <label>Hur många gånger skall det gå att visa lösenordet?<br/>
-          <input className="rangeSlider" min="1" max="100" type="range" value={maxViews} onChange={(e) => setMaxViews(e.target.valueAsNumber)}/>
-        </label>
+        <input className="rangeSlider" min="1" max="100" type="range" value={maxViews} onChange={(e) => setMaxViews(e.target.valueAsNumber)}/>
         <br/>
+        <p>(vad som än kommer först)</p>
         <br/>
 
-        <input className="submitButton" type="submit" value="Generera länk"/>
+        <input className="submitButton" type="submit" value="Skapa länk"/>
       </form>
     </div>
   )
 
 }
 
+function DialectHeader(props : any) {
 
-// KOD SOM KOM MED I MALLEN JAG KLONADE
-/*
-<header className="App-header">
-<img src={logo} className="App-logo" alt="logo" />
-<p>Hello Vite + React!</p>
-<p>
-  <button type="button" onClick={() => setCount((count) => count + 1)}>
-    count is: {count}
-  </button>
-</p>
-<p>
-  Edit <code>App.tsx</code> and save to test HMR updates.
-</p>
-<p>
-  <a
-    className="App-link"
-    href="https://reactjs.org"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Learn React
-  </a>
-  {' | '}
-  <a
-    className="App-link"
-    href="https://vitejs.dev/guide/features.html"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Vite Docs
-  </a>
-</p>
-</header>
-*/
+  return (
+    <header>
+      <img src={props.imagePath}/>
+    </header>
+  )
 
+}
+
+function DialectFooter(props : any) {
+  return (
+    <footer>
+      <a href="https://dialect.se">Dialect.se</a> | <a href="mailto:support@dialect.se">Maila supporten</a> | <a href="tel:+46500105350">Ring supporten</a>
+    </footer>
+  )
+}
 
 export default App
