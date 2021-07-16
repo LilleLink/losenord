@@ -42,6 +42,12 @@ function Form(props : any) {
     alert("Inputs: "+password+", "+expiryDate+", "+maxViews);
     const URLgen = await postReq(password, expiryDate, maxViews);
     alert("URL: " +URLgen);
+
+    //Example of how to run GET request
+    /* 
+    const getPass = await getReq( ENTER ID IN LINK HERE );
+    alert("Password: " +getPass);
+    */
   }
 
   return (
