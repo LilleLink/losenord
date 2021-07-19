@@ -74,9 +74,12 @@ footer a {
 .textField {
   outline: none;
   border: none;
+  color: white;
   font-size: 24px;
   width: 40%;
-  box-shadow: 0 0.5px 4px 1px black;
+  border-bottom: 2px solid #EE715F;
+  background-color:rgb(22, 22, 22);
+  /*box-shadow: 0 0.5px 4px 1px black;*/
   text-align: center;
   padding: 5px;
 }
@@ -90,6 +93,10 @@ footer a {
   border-radius: 10px;
   resize: none;
   min-width: 400px;
+}
+
+.smaller {
+  font-size: 16px;
 }
 
 .rangeSlider {

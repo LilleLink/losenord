@@ -13,12 +13,14 @@ export default function Form(props : any) {
     const [password, setPassword] = useState("");
     const [expiryDate, setExpiryDate] = useState(30);
     const [maxViews, setMaxViews] = useState(50);
+    const [passwordURL, setPasswordURL] = useState("");
   
     const handleSubmit = async (e : React.FormEvent) => {
       e.preventDefault();
-      alert("Inputs: "+password+", "+expiryDate+", "+maxViews);
+      //alert("Inputs: "+password+", "+expiryDate+", "+maxViews);
       const URLgen = await postReq(password, expiryDate, maxViews);
       alert("URL: " +URLgen);
+      setPasswordURL(URLgen);
   
       //Example of how to run GET request
       /* 
@@ -54,7 +56,16 @@ export default function Form(props : any) {
           <br/>
   
           <input className="submitButton" type="submit" value="Skapa länk"/>
+
+          
         </form>
+
+        <br/>
+        <div className="horizontalLine"></div>
+        <br/>
+        <p>Din delningslänk är:</p>
+        <textarea readOnly className="textArea smaller" rows={1} value={passwordURL}></textarea>
+
       </div>
     )
   
