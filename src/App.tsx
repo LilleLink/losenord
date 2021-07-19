@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Link, Switch, Route, Redirect, useParams } fro
 import Form from './Form';
 import './App.css'
 import {DialectHeader, DialectFooter} from './DialectProps';
-import { PasswordRetriever } from './PasswordRetriever';
+import PasswordRetriever from './PasswordRetriever';
 
 
 // Huvud "Appen" där allt laddas in. T.ex. formulärobjektet med "<Form/>"
