@@ -14,7 +14,7 @@ function App() {
     <Router>
         <Switch>
           <Route path="/" component={PostPassword}/>
-          <Route path="/p" component={GetPassword}/>
+          <Route path="/p/" component={GetPassword}/>
         </Switch>
     </Router>
   )
