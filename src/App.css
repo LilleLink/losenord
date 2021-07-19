@@ -10,8 +10,7 @@
 }
 
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 main {
@@ -102,4 +101,12 @@ footer a {
   footer {
     width: 100%;
   }
+}
+
+@font-face {
+  font-family: 'aventalight';
+  src: url('assets\fonts\webfontkit-20210719-032746\aventa_light-webfont.woff2') format('woff2'),
+       url('assets\fonts\webfontkit-20210719-032746\aventa_light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
