@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 export function DialectHeader(props : any) {
     return (
         <header>
-        <img src={props.imagePath}/>
+            <img src={`/${props.imagePath}`}/>
         </header>
     )
 }

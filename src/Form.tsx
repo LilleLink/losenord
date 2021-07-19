@@ -28,7 +28,7 @@ export default function Form(props : any) {
     }
   
     return (
-      <div className="Form">
+      <div className="Content">
         <div id="information">
           <p>Fyll i formuläret nedan och tryck sedan på "Skapa länk" för att generera en mailbar länk.</p>
         </div>
