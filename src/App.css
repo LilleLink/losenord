@@ -84,6 +84,10 @@ footer a {
   padding: 5px;
 }
 
+.textField:focus {
+  background-color: #242424;
+}
+
 .textArea {
   text-align: center;
   background-color: black;
@@ -100,9 +104,16 @@ footer a {
 }
 
 .rangeSlider {
+  -webkit-appearance: none; /*Rensar design info*/
   width: 50%;
   min-width: 300px;
+  overflow: hidden;
+  background-color: #1A4E63;
+  border-radius: 10px;
+}
 
+.rangeSlider::-webkit-slider-thumb {
+  color: #EE715F;
 }
 
 .horizontalLine {

@@ -37,71 +37,39 @@ export default function Form(props: any) {
     window.location.href = mailto;
   };
 
-  return (
-    <div className="Content">
-      <div id="information">
-        <p>
-          Fyll i formuläret nedan och tryck sedan på "Skapa länk" för att
-          generera en mailbar länk.
-        </p>
-      </div>
+    return (
+      <div className="Content">
 
-      <br />
-      <div className="horizontalLine"></div>
-
-      <form onSubmit={handleSubmit}>
-        <br />
-        <label>
-          Lösenord <br />
-          <input
-            className="textField"
-            type="text"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <br />
-        <br />
-
-        <label>Inaktivera länk och ta bort lösenord efter: </label>
-        <br />
-        <input
-          className="rangeSlider"
-          min="1"
-          max="60"
-          type="range"
-          value={expiryDate}
-          onChange={(e) => setExpiryDate(e.target.valueAsNumber)}
-        />
-        <br />
-
-        <input
-          className="rangeSlider"
-          min="1"
-          max="100"
-          type="range"
-          value={maxViews}
-          onChange={(e) => setMaxViews(e.target.valueAsNumber)}
-        />
-        <br />
-        <p>(vad som än kommer först)</p>
-        <br />
-
-        <input className="submitButton" type="submit" value="Skapa länk" />
+        <form onSubmit={handleSubmit}>
+          <br/>
+          <p>Lösenord</p><br/>
+          <input className="textField" type="text" value={password} onChange={(e) => setPassword(e.target.value)}/>
+          <br/>
+          <br/>
+          
+          <p>Inaktivera länk och ta bort lösenord efter: </p><br/>
+          <input className="rangeSlider" min="1" max="60" type="range" value={expiryDate} onChange={(e) => setExpiryDate(e.target.valueAsNumber)}/> 
+          <p>{expiryDate} dagar</p>
+          <br/>
+  
+          <input className="rangeSlider" min="1" max="100" type="range" value={maxViews} onChange={(e) => setMaxViews(e.target.valueAsNumber)}/>
+          <p>{maxViews} visningar</p>
+          <br/>
+          <p>(vad som än kommer först)</p>
+          <br/>
+  
+          <input className="submitButton" type="submit" value="Skapa länk"/>
       </form>
 
       <br />
       <div className="horizontalLine"></div>
       <br />
+
       <p>Din delningslänk är:</p>
-      <textarea
-        readOnly
-        className="textArea smaller"
-        rows={1}
-        value={passwordURL}
-      ></textarea>
+      <textarea readOnly className="textArea smaller" rows={1} value={passwordURL}></textarea>
 
       <button onClick={sendMail}>Skicka mail</button>
+      
     </div>
   );
 }
