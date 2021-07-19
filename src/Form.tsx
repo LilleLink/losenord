@@ -10,32 +10,32 @@ var URLgen: React.SetStateAction<string> | null = null;
 // Tänker att man kke flyttar varje sån klass till sin egen fil, som importeras här, och sammanställs i "App"
 // funktionen ovan.
 export default function Form(props: any) {
-  const [password, setPassword] = useState("");
-  const [expiryDate, setExpiryDate] = useState(30);
-  const [maxViews, setMaxViews] = useState(50);
-  const [passwordURL, setPasswordURL] = useState("");
+    const [password, setPassword] = useState("");
+    const [expiryDate, setExpiryDate] = useState(30);
+    const [maxViews, setMaxViews] = useState(50);
+    const [passwordURL, setPasswordURL] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    //alert("Inputs: "+password+", "+expiryDate+", "+maxViews);
-    URLgen = await postReq(password, expiryDate, maxViews);
-    alert("URL: " + URLgen);
-    setPasswordURL(URLgen);
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        //alert("Inputs: "+password+", "+expiryDate+", "+maxViews);
+        URLgen = await postReq(password, expiryDate, maxViews);
+        alert("URL: " + URLgen);
+        setPasswordURL(URLgen);
 
-    //Example of how to run GET request
-    /* 
-      const getPass = await getReq( ENTER ID IN LINK HERE );
-      alert("Password: " +getPass);
-      */
-  };
+        //Example of how to run GET request
+        /* 
+        const getPass = await getReq( ENTER ID IN LINK HERE );
+        alert("Password: " +getPass);
+        */
+    };
 
-  let sendMail = () => {
-    const mailto: string =
-      "mailto:?subject=Ditt%20l%C3%B6senord&body=Hej%2C%0A%0AH%C3%A4r%20kommer%20ditt%20l%C3%B6senord.%20%0AV%C3%A4nligen%20klicka%20p%C3%A5%20l%C3%A4nken%20nedan%20f%C3%B6r%20att%20h%C3%A4mta%20det.%20Denna%20l%C3%A4nk%20kan%20bara%20brukas%20en%20g%C3%A5ng.%0A%0A" +
-      URLgen +
-      "%0A%0AMed%20v%C3%A4nliga%20h%C3%A4lsningar%2C%0ADialect%20Support";
-    window.location.href = mailto;
-  };
+    let sendMail = () => {
+        const mailto: string =
+        "mailto:?subject=Ditt%20l%C3%B6senord&body=Hej%2C%0A%0AH%C3%A4r%20kommer%20ditt%20l%C3%B6senord.%20%0AV%C3%A4nligen%20klicka%20p%C3%A5%20l%C3%A4nken%20nedan%20f%C3%B6r%20att%20h%C3%A4mta%20det.%20Denna%20l%C3%A4nk%20kan%20bara%20brukas%20en%20g%C3%A5ng.%0A%0A" +
+        URLgen +
+        "%0A%0AMed%20v%C3%A4nliga%20h%C3%A4lsningar%2C%0ADialect%20Support";
+        window.location.href = mailto;
+    };
 
     return (
       <div className="Content">
@@ -69,7 +69,7 @@ export default function Form(props: any) {
       <textarea readOnly className="textArea smaller" rows={1} value={passwordURL}></textarea>
 
       <button onClick={sendMail}>Skicka mail</button>
-      
+
     </div>
   );
 }
