@@ -29,6 +29,11 @@ header {
 img {
   margin: 0;
 }
+
+h3 {
+  margin: 5px;
+}
+
 /*#1A4E63blue*/ 
 
 .footerWrapper {
@@ -232,9 +237,6 @@ how to remove the virtical space around the range input in IE*/
   border-color: #1A4E63;
 }
 
-h3 {
-  margin: 5px;
-}
 
 @media screen and (max-width: 1000px){
   .Content {
