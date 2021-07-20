@@ -14,7 +14,7 @@ export function DialectFooter(props : any) {
     
         <div className="footerWrapper">
             <footer>
-                <a href="https://dialect.se">Dialect.se</a> | <a href="mailto:support@dialect.se">Maila supporten</a> | <a href="tel:+46500105350">Ring supporten</a>
+                <a href="https://dialect.se">Dialect.se</a> | <a href="mailto:support@dialect.se">support@dialect.se</a> | <a href="tel:+4620555555">020-55 55 55</a>
                 <br/><img src={imgURL}/>
             </footer>
         </div>
