@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
         <Switch>
-          <Route exact path="/p/:id" component={GetPassword}/>
+          <Route exact path="*/p/:id" component={GetPassword}/>
           <Route exact path="/" component={PostPassword}/>
           <Route component={NotFound}/>
         </Switch>
