@@ -41,7 +41,7 @@ export async function getReq(idPass: string) {
 
   if(response.deleted === true || response.expired === true ){
     return(
-      "Lösenord har gått ut eller blivit bortaggen"
+      "Lösenord har gått ut eller blivit bortagget"
     )
   }
   return(
