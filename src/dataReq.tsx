@@ -5,6 +5,9 @@ async function http<T>(
   request: RequestInfo
 ): Promise<T> {
   const response = await fetch(request);
+  //if(!response.ok){
+  //  throw Error(response.statusText)
+  //}
   const body = await response.json();
   //console.log(body)
   return body;
@@ -48,6 +51,8 @@ export async function postReq(payload: string, expire_after_days: number , expir
   //Specifies what data is needed from the response
   interface POSTdataFormat {
     url_token: string
+    error: string
+    status: 500
   }
 
   //Calls "http" function with data that is needed for correct response
@@ -67,7 +72,12 @@ export async function postReq(payload: string, expire_after_days: number , expir
       }
     )
   );
-
+  console.log(response)
+  if (response.status != null){
+    return(
+      "Något gick tyvärr fel. Försök igen senare"
+    )
+  }
   //Creates an URL to send back
   return(
     'https://losenord.dialect.it/p/' + response.url_token
