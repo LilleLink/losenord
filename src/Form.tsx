@@ -37,6 +37,31 @@ export default function Form(props: any) {
         window.location.href = mailto;
     };
 
+    function Days(){
+      const amountDays: string = expiryDate + " dagar"
+      if (expiryDate < 2){
+        const amountDays = expiryDate + " dag"
+        return(amountDays)
+      }
+      return(amountDays)
+    }
+
+    function Views(){
+      const amountViews: string = maxViews + " visningar"
+      if (maxViews < 2){
+        const amountViews = maxViews + " visning"
+        return(amountViews)
+      }
+      return(amountViews)
+    }
+
+    /*let Days = () => {
+    const amountDays: string = expiryDate + " dagar"
+    if (expiryDate < 2){
+      const amountDays = expiryDate + " dag"
+      let Days = amountDays
+    }
+    */
     return (
       <div className="Content">
 
@@ -49,11 +74,11 @@ export default function Form(props: any) {
           
           <p>Inaktivera länk och ta bort lösenord efter: </p><br/>
           <input className="rangeSlider" min="1" max="60" type="range" value={expiryDate} onChange={(e) => setExpiryDate(e.target.valueAsNumber)}/> 
-          <p>{expiryDate} dagar</p>
+          <p>{Days()}</p>
           <br/>
   
           <input className="rangeSlider" min="1" max="100" type="range" value={maxViews} onChange={(e) => setMaxViews(e.target.valueAsNumber)}/>
-          <p>{maxViews} visningar</p>
+          <p>{Views()}</p>
           <br/>
           <p>(vad som än kommer först)</p>
           <br/>
