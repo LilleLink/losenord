@@ -58,15 +58,12 @@ export default function Form(props: any) {
     function LinkSection() {
         return (
             <div>
+                <br/>
                 <div className="horizontalLine"></div>
                 <br />
     
-                <p>Din delningslänk är:</p>
-                <div className="textArea smaller">
-                    <p>{passwordURL}</p>
-                </div>
-
-                <br/>
+                <h3>Din delningslänk är:</h3>
+                <input className="textField" readOnly value={passwordURL}/> <br/>
     
                 <button className="button" onClick={sendMail}>Skicka mail</button>
                 <button className="button" onClick={copyToClipboard}>Kopiera länk</button>
@@ -79,13 +76,12 @@ export default function Form(props: any) {
     <div className="Content">
 
         <form onSubmit={handleSubmit}>
-            <br/>
-            <p>Lösenord</p><br/>
+            <h3>Lösenord</h3>
             <input className="textField" type="text" value={password} onChange={(e) => setPassword(e.target.value)}/>
             <br/>
             <br/>
             
-            <p>Inaktivera länk och ta bort lösenord efter: </p><br/>
+            <h3>Inaktivera länk och ta bort lösenord efter: </h3><br/>
             <input className="rangeSlider" min="1" max="60" type="range" value={expiryDate} onChange={(e) => setExpiryDate(e.target.valueAsNumber)}/> 
             <p>{Days()}</p>
             <br/>
@@ -94,13 +90,9 @@ export default function Form(props: any) {
             <p>{Views()}</p>
             <br/>
             <p>(vad som än kommer först)</p>
-            <br/>
 
             <input className="button" type="submit" value="Skapa länk"/>
         </form>
-
-    
-        <br />
 
         {passwordSent ? <LinkSection/> : null}
 

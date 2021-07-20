@@ -15,8 +15,8 @@ export default function PasswordRetriever(props : any) {
 
     return (
         <div className="Content">
-            <h2>Klicka på rutan nedan för att hämta ditt lösenord</h2>
-            <textarea readOnly className="textArea" rows={1} onClick={getPassword}></textarea>
+            <h2>Klicka på fältet nedan för att hämta ditt lösenord</h2>
+            <input readOnly className="textField" onClick={getPassword} value={areaText}/>
         </div>
     )
 }
