@@ -21,12 +21,6 @@ export default function Form(props: any) {
         URLgen = await postReq(password, expiryDate, maxViews);
         alert("URL: " + URLgen);
         setPasswordURL(URLgen);
-
-        //Example of how to run GET request
-        /* 
-        const getPass = await getReq( ENTER ID IN LINK HERE );
-        alert("Password: " +getPass);
-        */
     };
 
     let sendMail = () => {
@@ -57,13 +51,6 @@ export default function Form(props: any) {
       return(amountViews)
     }
 
-    /*let Days = () => {
-    const amountDays: string = expiryDate + " dagar"
-    if (expiryDate < 2){
-      const amountDays = expiryDate + " dag"
-      let Days = amountDays
-    }
-    */
     return (
       <div className="Content">
 
