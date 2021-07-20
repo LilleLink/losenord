@@ -57,7 +57,7 @@ footer a {
   margin: 0;
 }
 
-.submitButton {
+.button {
   border-radius: 5px;
   border-style: none;
   padding: 10px;
@@ -67,7 +67,7 @@ footer a {
   min-width: 250px;
 }
 
-.submitButton:hover {
+.button:hover {
   background-color: #f57f6d;
 }
 

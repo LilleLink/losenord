@@ -14,14 +14,15 @@ export default function Form(props: any) {
     const [expiryDate, setExpiryDate] = useState(30);
     const [maxViews, setMaxViews] = useState(50);
     const [passwordURL, setPasswordURL] = useState("");
+    const [passwordSent, setPasswordSent] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         //alert("Inputs: "+password+", "+expiryDate+", "+maxViews);
         URLgen = await postReq(password, expiryDate, maxViews);
-        alert("URL: " + URLgen);
+        //alert("URL: " + URLgen);
         setPasswordURL(URLgen);
-
+        setPasswordSent(true);
         //Example of how to run GET request
         /* 
         const getPass = await getReq( ENTER ID IN LINK HERE );
@@ -38,6 +39,10 @@ export default function Form(props: any) {
         "%0A%0AMed%20v%C3%A4nliga%20h%C3%A4lsningar%2C%0ADialect%20Support";
         window.location.href = mailto;
     };
+
+    function copyToClipboard() {
+        navigator.clipboard.writeText(URLgen);
+    }
 
     function Days(){
       const amountDays: string = expiryDate + " dagar"
@@ -57,6 +62,26 @@ export default function Form(props: any) {
       return(amountViews)
     }
 
+    function LinkSection() {
+        return (
+            <div>
+                <div className="horizontalLine"></div>
+                <br />
+    
+                <p>Din delningslänk är:</p>
+                <div className="textArea smaller">
+                    <p>{passwordURL}</p>
+                </div>
+
+                <br/>
+    
+                <button className="button" onClick={sendMail}>Skicka mail</button>
+                <button className="button" onClick={copyToClipboard}>Kopiera länk</button>
+            </div>
+            
+        )
+    }
+
     /*let Days = () => {
     const amountDays: string = expiryDate + " dagar"
     if (expiryDate < 2){
@@ -65,38 +90,36 @@ export default function Form(props: any) {
     }
     */
     return (
-      <div className="Content">
+    <div className="Content">
 
         <form onSubmit={handleSubmit}>
-          <br/>
-          <p>Lösenord</p><br/>
-          <input className="textField" type="text" value={password} onChange={(e) => setPassword(e.target.value)}/>
-          <br/>
-          <br/>
-          
-          <p>Inaktivera länk och ta bort lösenord efter: </p><br/>
-          <input className="rangeSlider" min="1" max="60" type="range" value={expiryDate} onChange={(e) => setExpiryDate(e.target.valueAsNumber)}/> 
-          <p>{Days()}</p>
-          <br/>
-  
-          <input className="rangeSlider" min="1" max="100" type="range" value={maxViews} onChange={(e) => setMaxViews(e.target.valueAsNumber)}/>
-          <p>{Views()}</p>
-          <br/>
-          <p>(vad som än kommer först)</p>
-          <br/>
-  
-          <input className="submitButton" type="submit" value="Skapa länk"/>
-      </form>
+            <br/>
+            <p>Lösenord</p><br/>
+            <input className="textField" type="text" value={password} onChange={(e) => setPassword(e.target.value)}/>
+            <br/>
+            <br/>
+            
+            <p>Inaktivera länk och ta bort lösenord efter: </p><br/>
+            <input className="rangeSlider" min="1" max="60" type="range" value={expiryDate} onChange={(e) => setExpiryDate(e.target.valueAsNumber)}/> 
+            <p>{Days()}</p>
+            <br/>
 
-      <br />
-      <div className="horizontalLine"></div>
-      <br />
+            <input className="rangeSlider" min="1" max="100" type="range" value={maxViews} onChange={(e) => setMaxViews(e.target.valueAsNumber)}/>
+            <p>{Views()}</p>
+            <br/>
+            <p>(vad som än kommer först)</p>
+            <br/>
 
-      <p>Din delningslänk är:</p>
-      <textarea readOnly className="textArea smaller" rows={1} value={passwordURL}></textarea>
+            <input className="button" type="submit" value="Skapa länk"/>
+        </form>
 
-      <button onClick={sendMail}>Skicka mail</button>
+    
+        <br />
+
+        {passwordSent ? <LinkSection/> : null}
 
     </div>
   );
 }
+
+

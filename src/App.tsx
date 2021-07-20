@@ -4,7 +4,7 @@ import Form from './Form';
 import './App.css'
 import {DialectHeader, DialectFooter} from './DialectProps';
 import PasswordRetriever from './PasswordRetriever';
-import imgURL from '../assets/dialogo.png';
+import imgURL from '../assets/dialogo.png'; // Måste göra såhär för att det skall fungera i build sen
 
 // Huvud "Appen" där allt laddas in. T.ex. formulärobjektet med "<Form/>"
 function App() {
