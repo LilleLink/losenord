@@ -12,8 +12,9 @@ function App() {
   return (
     <Router>
         <Switch>
-          <Route path="/p/:id" component={GetPassword}/>
-          <Route path="/" component={PostPassword}/>
+          <Route exact path="/p/:id" component={GetPassword}/>
+          <Route exact path="/" component={PostPassword}/>
+          <Route component={NotFound}/>
         </Switch>
     </Router>
   )
@@ -53,6 +54,21 @@ function GetPassword() {
     </div>  
   )
 
+}
+
+function NotFound() {
+  return (
+    <div className="App">
+      <DialectHeader imagePath={imgURL}/>
+
+      <main>
+        <h1>Error: 404</h1>
+        <h2>Hoppsan! Sidan du letar efter finns inte...</h2>
+      </main>
+
+      <DialectFooter/>
+    </div>
+  )
 }
 
 export default App

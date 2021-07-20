@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { postReq } from "./dataReq";
 import { getReq } from "./dataReq";
 
-var URLgen: React.SetStateAction<string> | null = null;
+var URLgen: any | null = null;
 // Formulärobjekt
 // Tror att denna skall flyttas till en egen klass, då man kan göra såna och de verkar coola.
 // Då får man lite objekt-orienterad funktionalitet som vi saknar här.
