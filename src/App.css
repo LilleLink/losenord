@@ -25,6 +25,10 @@ header {
   box-shadow: 0 0 10px 3px black;
   z-index: 1;
 }
+
+img {
+  margin: 0;
+}
 /*#1A4E63blue*/ 
 
 .footerWrapper {
@@ -104,8 +108,111 @@ footer a {
   font-size: 16px;
 }
 
+input[type=range] {
+  width: 50%;
+  min-width: 300px;
+  margin: 3.8px 0;
+  background-color: transparent;
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  background: #1a4e63;
+  border: 0;
+  border-radius: 10.3px;
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  margin-top: -3.8px;
+  width: 16px;
+  height: 16px;
+  background: #ee715f;
+  border: 1px solid #000000;
+  border-radius: 30px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #1A4E63;
+}
+
+input[type=range]::-moz-range-track {
+  background: #1a4e63;
+  border: 0;
+  border-radius: 10.3px;
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+}
+
+input[type=range]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #ee715f;
+  border: 1px solid #000000;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 4.8px 0;
+  color: transparent;
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: #143b4b;
+  border: 0;
+  border-radius: 20.6px;
+}
+
+input[type=range]::-ms-fill-upper {
+  background: #1a4e63;
+  border: 0;
+  border-radius: 20.6px;
+}
+
+input[type=range]::-ms-thumb {
+  width: 16px;
+  height: 16px;
+  background: #ee715f;
+  border: 1px solid #000000;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 0px;
+  /*Needed to keep the Edge thumb centred*/
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: #1a4e63;
+}
+
+
+/*TODO: Use one of the selectors from https://stackoverflow.com/a/20541859/7077589 and figure out
+how to remove the virtical space around the range input in IE*/
+@supports (-ms-ime-align:auto) {
+  /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
+  input[type=range] {
+    margin: 0;
+    /*Edge starts the margin from the thumb, not the track as other browsers do*/
+  }
+}
+
+/*
 .rangeSlider {
-  -webkit-appearance: none; /*Rensar design info*/
+  -webkit-appearance: none;
   width: 50%;
   min-width: 300px;
   overflow: hidden;
@@ -114,8 +221,9 @@ footer a {
 }
 
 .rangeSlider::-webkit-slider-thumb {
-  color: #EE715F;
+  background: #EE715F;
 }
+*/
 
 .horizontalLine {
   width: 100%;
