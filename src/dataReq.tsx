@@ -91,3 +91,28 @@ export async function postReq(payload: string, expire_after_days: number , expir
     'https://losenord.dialect.it/p/' + response.url_token
   )
 }
+
+
+
+
+export async function genPass() {
+
+  const URLfget = "https://cors.dialekt.it/https://www.dinopass.com/password/simple"
+
+
+  //Calls "http" function with data that is needed for correct response
+  const response = await http(
+    new Request(
+      URLfget,
+      {
+        method: "GET",
+        headers: { 'Accept': 'application/x-www-form-urlencoded' },
+      }
+    )
+  );
+
+  
+  return(
+    response
+  )
+}
