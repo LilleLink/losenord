@@ -223,7 +223,7 @@ how to remove the virtical space around the range input in IE*/
 }
 
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 700px){
   .Content {
     width: 100%;
   }
@@ -232,8 +232,15 @@ how to remove the virtical space around the range input in IE*/
     width: 100%;
   }
 
-  #footerlogo {
+
+  .row {
+    margin: 5px 7px;
+  }
+
+  
+  .footerlogo {
     display: none;
+    margin: 0;
   }
 
 }
