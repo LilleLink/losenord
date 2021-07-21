@@ -109,7 +109,10 @@ export async function genPass() {
     password = html
   });
 
+const outputPass: string = await password
+
+
 return(
-  await password
+  outputPass
 )
 }
