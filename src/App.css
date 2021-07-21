@@ -42,15 +42,27 @@ h3 {
 
 footer {
   width: 100%;
-  min-height: 100px;
   bottom: 0;
   background-color: #1A4E63;
   margin: 0 auto;
   color: white;
+  text-align: center;
+  padding: 10px 0px;
 }
 
 footer a {
   color: white;
+}
+
+.row {
+  text-align: left;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0px 20px;
+}
+
+.row p {
+  margin: 0;
 }
 
 .Content {
@@ -214,21 +226,6 @@ how to remove the virtical space around the range input in IE*/
     /*Edge starts the margin from the thumb, not the track as other browsers do*/
   }
 }
-
-/*
-.rangeSlider {
-  -webkit-appearance: none;
-  width: 50%;
-  min-width: 300px;
-  overflow: hidden;
-  background-color: #1A4E63;
-  border-radius: 10px;
-}
-
-.rangeSlider::-webkit-slider-thumb {
-  background: #EE715F;
-}
-*/
 
 .horizontalLine {
   width: 100%;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import imgURL from '../assets/Dialect_ByLine2020_White_Coral.png';
+import imgURL from '../assets/smalllogo.png';
 
 export function DialectHeader(props : any) {
     return (
@@ -14,8 +14,19 @@ export function DialectFooter(props : any) {
     
         <div className="footerWrapper">
             <footer>
-                <a href="https://dialect.se">Dialect.se</a> | <a href="mailto:support@dialect.se">support@dialect.se</a> | <a href="tel:+4620555555">020-55 55 55</a>
-                <br/><img src={imgURL}/>
+                <div className="row">
+                    <img src={imgURL}></img>
+                </div>
+                <div className="row">
+                    <p>Epost:</p>
+                    <a href="mailto:support@dialect.se">support@dialect.se</a>
+                    <p>Vardagar 07.00 - 17.00</p>
+                </div>
+                <div className="row">
+                    <p>Telefon:</p>
+                    <a href="tel:020-555555">020-55 55 55</a>
+                    <p>Vardagar 07.00 - 17.00</p>
+                </div>
             </footer>
         </div>
 
