@@ -97,22 +97,19 @@ export async function postReq(payload: string, expire_after_days: number , expir
 
 export async function genPass() {
 
-  const URLfget = "https://cors.dialekt.it/https://www.dinopass.com/password/simple"
+  var password: string = "";
+  const response = await fetch('https://www.dinopass.com/password/simple',{
+  headers: { 'Content-Type': 'text/plain;charset=UTF-8'},
+  })
+  .then(function (response) {
+	  // The API call was successful!
+	  return response.text();
+  }).then(function (html) {
+	  // This is the HTML from our response as a text string
+    password = html
+  });
 
-
-  //Calls "http" function with data that is needed for correct response
-  const response = await http(
-    new Request(
-      URLfget,
-      {
-        method: "GET",
-        headers: { 'Accept': 'application/x-www-form-urlencoded' },
-      }
-    )
-  );
-
-  
-  return(
-    response
-  )
+return(
+  await password
+)
 }
