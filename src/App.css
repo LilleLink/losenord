@@ -98,7 +98,7 @@ footer a {
   border: none;
   color: white;
   font-size: 22px;
-  width: 450px;
+  width: 60%;
   border-bottom: 2px solid #EE715F;
   background-color:rgb(22, 22, 22);
   /*box-shadow: 0 0.5px 4px 1px black;*/
@@ -110,24 +110,12 @@ footer a {
   background-color: #242424;
 }
 
-.textArea {
-  text-align: center;
-  background-color: black;
-  color: white;
-  font-size: 24px;
-  border: 1px solid #EE715F;
-  border-radius: 10px;
-  resize: none;
-  min-width: 400px;
-}
-
 .smaller {
   font-size: 16px;
 }
 
 input[type=range] {
-  width: 50%;
-  min-width: 300px;
+  width: 60%;
   margin: 3.8px 0;
   background-color: transparent;
   -webkit-appearance: none;
@@ -243,6 +231,11 @@ how to remove the virtical space around the range input in IE*/
   footer {
     width: 100%;
   }
+
+  #footerlogo {
+    display: none;
+  }
+
 }
 
 @font-face {

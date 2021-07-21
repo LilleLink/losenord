@@ -15,7 +15,7 @@ export function DialectFooter(props : any) {
         <div className="footerWrapper">
             <footer>
                 <div className="row">
-                    <img src={imgURL}></img>
+                    <img id="footerlogo" src={imgURL}/>
                 </div>
                 <div className="row">
                     <p>Epost:</p>
