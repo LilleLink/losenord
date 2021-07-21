@@ -93,6 +93,23 @@ footer a {
   background-color: #f57f6d;
 }
 
+.generateButton {
+  justify-content: center;
+  border-radius: 5px;
+  border-style: none;
+  background-color: #EE715F;
+  align-items: center;
+  margin: 5px;
+}
+
+.generateButton:hover {
+  background-color: #f57f6d;
+}
+
+.verticalAlignTop {
+  vertical-align: top;
+}
+
 .textField {
   outline: none;
   border: none;

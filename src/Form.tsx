@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { postReq } from "./dataReq";
 import { getReq } from "./dataReq";
+import { genPass } from "./dataReq";
+import generateImgURL from '../assets/generate.png';
 
 var URLgen: any | null = null;
 // Formulärobjekt
@@ -21,6 +23,7 @@ export default function Form(props: any) {
         URLgen = await postReq(password, expiryDate, maxViews);
         setPasswordURL(URLgen);
         setPasswordSent(true);
+        alert("password sent");
     };
 
     let sendMail = () => {
@@ -55,6 +58,13 @@ export default function Form(props: any) {
       return(amountViews)
     }
 
+    function PasswordGenerator() {
+
+      return (
+        <button className="generateButton" onClick={async () => setPassword(await genPass())}><img src={generateImgURL}/></button>
+      )
+    }
+
     function LinkSection() {
         return (
             <div>
@@ -77,7 +87,11 @@ export default function Form(props: any) {
 
         <form onSubmit={handleSubmit}>
             <h3>Lösenord</h3>
-            <input className="textField" type="text" value={password} onChange={(e) => setPassword(e.target.value)}/>
+            <div className="verticalAlignTop">
+              <input className="textField" type="text" value={password} onChange={(e) => setPassword(e.target.value)}/><br/>
+              <PasswordGenerator/>
+            </div>
+            
             <br/>
             <br/>
             
