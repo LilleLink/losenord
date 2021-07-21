@@ -26,7 +26,6 @@ export async function getReq(idPass: string) {
 
   const URLfget = "https://cors.dialekt.it/https://backendpw.dialekt.it/p/" + idPass + ".json"
 
-  console.log(URLfget)
 
   //Calls "http" function with data that is needed for correct response
   const response = await http<GETdataFormat>(
@@ -39,9 +38,9 @@ export async function getReq(idPass: string) {
     )
   );
 
-  if(response.deleted === true || response.expired === true ){
+  if(response.deleted === true || response.expired === true || response.payload == null /*|| response.views_remaining == 0*/){
     return(
-      "Lösenord har gått ut eller blivit bortagget"
+      "Lösenordet har gått ut eller blivit borttaget"
     )
   }
   return(
@@ -77,6 +76,10 @@ export async function postReq(payload: string, expire_after_days: number , expir
       }
     )
   );
+
+  //Make up for backend adding +1 to "expire after views"
+  await getReq(response.url_token)
+
   console.log(response)
   if (response.status != null){
     return(
