@@ -4,7 +4,9 @@ import imgURL from '../assets/smalllogo.png';
 export function DialectHeader(props : any) {
     return (
         <header>
-            <img src={props.imagePath}/>
+            <a href="https://losenord.dialect.it">
+                <img src={props.imagePath}/>
+            </a>
         </header>
     )
 }
