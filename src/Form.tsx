@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { EventHandler, useState } from "react";
 import { postReq } from "./dataReq";
 import { getReq } from "./dataReq";
 import { genPass } from "./dataReq";
 import generateImgURL from '../assets/generate.png';
+import { Redirect } from "react-router-dom";
 
 var URLgen: any | null = null;
 // Formulärobjekt
@@ -13,6 +14,7 @@ var URLgen: any | null = null;
 // funktionen ovan.
 export default function Form(props: any) {
     const [password, setPassword] = useState("");
+    const [passwordIsValid, setPasswordIsValid] = useState(true);
     const [expiryDate, setExpiryDate] = useState(30);
     const [maxViews, setMaxViews] = useState(50);
     const [passwordURL, setPasswordURL] = useState("");
@@ -20,9 +22,11 @@ export default function Form(props: any) {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        URLgen = await postReq(password, expiryDate, maxViews);
-        setPasswordURL(URLgen);
-        setPasswordSent(true);
+        if (passwordIsValid) {
+          URLgen = await postReq(password, expiryDate, maxViews);
+          setPasswordURL(URLgen);
+          setPasswordSent(true);
+        }
     };
 
     let sendMail = () => {
@@ -57,6 +61,33 @@ export default function Form(props: any) {
       return(amountViews)
     }
 
+    function formRefreshed() {
+      if(passwordSent) {
+        setPasswordSent(false);
+      }
+    }
+
+    function passwordChangeHandler(e : React.ChangeEvent<HTMLInputElement>) {
+      setPassword(e.target.value);
+      formRefreshed();
+
+      if (e.target.value.includes('å') || e.target.value.includes('ä') || e.target.value.includes('ö')) {
+        setPasswordIsValid(false);
+      } else {
+        setPasswordIsValid(true);
+      }
+    }
+
+    function expiryDateChangeHandler(e : React.ChangeEvent<HTMLInputElement>) {
+      setExpiryDate(e.target.valueAsNumber);
+      formRefreshed();
+    }
+
+    function maxViewsChangeHandler(e : React.ChangeEvent<HTMLInputElement>) {
+      setMaxViews(e.target.valueAsNumber);
+      formRefreshed();
+    }
+
     function PasswordGenerator() {
 
       return (
@@ -81,13 +112,27 @@ export default function Form(props: any) {
         )
     }
 
+    function InvalidPasswordMessage() {
+
+      const style = {
+        color: 'red'
+      }
+
+      return (
+        <div>
+          <p style={style}>Lösenordet kan ej innehålla å, ä eller ö.</p>
+        </div>
+      )
+    }
+
     return (
     <div className="Content">
 
         <div>
             <h3>Lösenord</h3>
             <div className="verticalAlignTop">
-              <input className="textField" type="text" value={password} onChange={(e) => setPassword(e.target.value)}/><br/>
+              <input className="textField" type="text" value={password} onChange={passwordChangeHandler}/><br/>
+              {passwordIsValid ? null : <InvalidPasswordMessage/>}
               <PasswordGenerator/>
             </div>
             
@@ -97,11 +142,11 @@ export default function Form(props: any) {
         
         <form onSubmit={handleSubmit}>    
             <h3>Inaktivera länk och ta bort lösenord efter: </h3><br/>
-            <input className="rangeSlider" min="1" max="60" type="range" value={expiryDate} onChange={(e) => setExpiryDate(e.target.valueAsNumber)}/> 
+            <input className="rangeSlider" min="1" max="60" type="range" value={expiryDate} onChange={expiryDateChangeHandler}/> 
             <p>{Days()}</p>
             <br/>
 
-            <input className="rangeSlider" min="1" max="100" type="range" value={maxViews} onChange={(e) => setMaxViews(e.target.valueAsNumber)}/>
+            <input className="rangeSlider" min="1" max="100" type="range" value={maxViews} onChange={maxViewsChangeHandler}/>
             <p>{Views()}</p>
             <br/>
             <p>(vad som än kommer först)</p>
