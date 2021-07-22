@@ -27,11 +27,29 @@ export default function PasswordRetriever(props : any) {
         )
     }
 
+    function PasswordButton() {
+        return(
+            <div>
+            <button className="button" onClick={getPassword}>Klicka här för att hämta lösenord</button><br></br>
+            </div>
+        )
+    }
+
+    function PasswordText() {
+
+        return(
+            <div>
+            <input readOnly className="textField" value={areaText}/><br/>
+            </div>
+        )
+
+    }
+
     return (
         <div className="Content">
-            <h2>Klicka på fältet nedan för att hämta ditt lösenord</h2>
-            <input readOnly className="textField" onClick={getPassword} value={areaText}/><br/>
-
+            <h2>Med hjälp av denna sida kan du få ditt lösenord</h2>
+            {boxClicked ? null : <PasswordButton/>}
+            {boxClicked ? <PasswordText/> : null}
             {boxClicked ? <CopyButton/> : null}
             
         </div>

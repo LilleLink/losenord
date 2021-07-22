@@ -23,7 +23,6 @@ export default function Form(props: any) {
         URLgen = await postReq(password, expiryDate, maxViews);
         setPasswordURL(URLgen);
         setPasswordSent(true);
-        alert("password sent");
     };
 
     let sendMail = () => {
