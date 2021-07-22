@@ -111,8 +111,13 @@ export async function genPass() {
 
 const outputPass: string = await password
 
+function capitalizeFirstLetter(string: string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+
 
 return(
-  outputPass
+  capitalizeFirstLetter(outputPass)
 )
 }
