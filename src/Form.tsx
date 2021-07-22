@@ -106,7 +106,7 @@ export default function Form(props: any) {
             <br/>
             <p>(vad som än kommer först)</p>
 
-            <input className="button" type="submit" value="Skapa länk"/>
+            <button className="button" type="submit">Skapa länk</button>
         </form>
 
         {passwordSent ? <LinkSection/> : null}
