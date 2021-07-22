@@ -85,7 +85,7 @@ export default function Form(props: any) {
     return (
     <div className="Content">
 
-        <form onSubmit={handleSubmit}>
+        <div>
             <h3>Lösenord</h3>
             <div className="verticalAlignTop">
               <input className="textField" type="text" value={password} onChange={(e) => setPassword(e.target.value)}/><br/>
@@ -94,7 +94,9 @@ export default function Form(props: any) {
             
             <br/>
             <br/>
-            
+        </div>
+        
+        <form onSubmit={handleSubmit}>    
             <h3>Inaktivera länk och ta bort lösenord efter: </h3><br/>
             <input className="rangeSlider" min="1" max="60" type="range" value={expiryDate} onChange={(e) => setExpiryDate(e.target.valueAsNumber)}/> 
             <p>{Days()}</p>
