@@ -1,2 +1,2 @@
-FROM httpd:2.4
-COPY ./dist/ /usr/local/apache2/htdocs/
+FROM nginx:latest
+COPY ./dist/ /usr/share/nginx/html/
