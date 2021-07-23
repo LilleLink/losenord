@@ -7,3 +7,8 @@ För att köra:
 1. npm install
 2. npm run dev
 3. http://localhost:3000
+
+För build:
+1. npm install
+2. npm run build
+3. kör med docker
