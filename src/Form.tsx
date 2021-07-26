@@ -5,6 +5,8 @@ import { genPass } from "./dataReq";
 import generateImgURL from '../assets/generate.png';
 import { Redirect } from "react-router-dom";
 
+//TEMP
+
 var URLgen: any | null = null;
 // Formulärobjekt
 // Tror att denna skall flyttas till en egen klass, då man kan göra såna och de verkar coola.
